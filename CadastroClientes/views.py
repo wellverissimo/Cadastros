@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from CadastroClientes.models import Cliente
+from CadastroClientes.models import * #esse asterisco é um "coringa" onde ele busca todos os elementos sem precisar especificar nenhum
 
 # Create your views here.
 def index(request):
@@ -18,6 +18,14 @@ def listar_clientes(request):
     context = {
         "clientes": lista_clientes,
     }
-
-
     return render(request, 'lista_clientes.html', context)
+
+def listar_profissoes(request):
+
+    lista_profissoes = Profissao.objects.all()
+
+    context = {
+        'profissoes': lista_profissoes,
+    }
+    return render(request, 'lista_profissoes.html', context)
+    
