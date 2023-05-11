@@ -11,7 +11,7 @@
 
     <ul>  <!-- x nesse caso substitui cliente  -->
         {% for x in clientes %}  
-        <li>{{ x.nome }} - {{ x.data_nascimento }}</li>
+        <li><a href="/cliente/{{x.id}}">{{ x.nome }}</a> - {{ x.data_nascimento }}</li>
             {% endfor %}
            
     </ul>
