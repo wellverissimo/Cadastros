@@ -11,9 +11,20 @@
 
     <ul>  <!-- x nesse caso substitui cliente  -->
         {% for x in clientes %}  
-        <li>{{ x.nome }}</li>
-        {% endfor %}
-
+        <li>{{ x.nome }} - {{ x.data_nascimento }}</li>
+            {% endfor %}
+           
     </ul>
+
+    <h1>Lista de Profissões</h1>
+
+    <ul>  <!--  -->
+        {% for prof in profissoes %}  
+        <li>{{ prof.nome }}</li>
+        {% endfor %}
+    </ul>
+
+
+
 </body>
 </html>

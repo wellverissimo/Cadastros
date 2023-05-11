@@ -14,9 +14,11 @@ def index(request):
 def listar_clientes(request):
     # busca todos os clientes cadastrados na tabela(admin)
     lista_clientes = Cliente.objects.all()
+    lista_profissoes = Profissao.objects.all()
     # o dicionário (variável) context é que vai mandar pro template
     context = {
         "clientes": lista_clientes,
+        'profissoes': lista_profissoes,
     }
     return render(request, 'lista_clientes.html', context)
 
