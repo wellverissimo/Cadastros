@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-3">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ cliente.nome }}</title>
@@ -12,18 +12,55 @@
 
     <table border="1">
         <tr>
+            <td>Nro Matrícula:</td>
+            <td> {{cliente.matricula}}</td>
+        </tr>
+        <tr>
             <td> Nome:</td>
             <td>{{ cliente.nome }}</td>
         </tr>
         <tr>
             <td>Data de Nascimento:</td>                      
-            <td>{{ cliente.data_nascimento }}</td>
+            <td>{{ cliente.data_nascimento|date:"d/m/Y" }}</td>
+        </tr>
+        <tr> 
+        <!-- cada tr é uma linha e cada td é uma coluna -->
+            <td>Endereço:</td>
+            <td>{{ cliente.endereco}} - {{cliente.nro}} - {{cliente.bairro}} - {{cliente.cidade}} - {{cliente.cep}}</td>
         </tr>
         <tr>
-            <td>Endereço:</td>
-            <td>{{ cliente.endereco}}</td>
+            <td>E-mail:</td>                      
+            <td>{{ cliente.email }}</td>
         </tr>
-
+        <tr>
+            <td>Renda Mensal:</td>                      
+            <td>{{ cliente.renda_mensal }}</td>
+        </tr>
+        <tr>
+            <td>Estado Civil:</td>                      
+            <td>{{ cliente.get_estado_civil_display }}</td>
+        </tr>
+        <tr>
+            <td>Profissão:</td>                      
+            <td>{{ cliente.profissao}}</td>
+        </tr>
+        <tr>
+            <td>Cadastro Ativo?</td>                      
+            <td>{{ cliente.ativo}}</td>
+        </tr>    
+        <tr>
+            <td>Interesses:</td>                      
+            <td>{{ cliente.interesses.all|join:","}}</td>
+        </tr> 
+        <tr>
+            <td>Telefones:</td> 
+            <td>
+                {% for tel in Telefones %}
+                ({{tel.DDD}}) - {{tel.numero}} <br>      <!--  Esse BR é para quebra de linha. Se tiver mais de um ele vai pra outra linha -->
+                {% endfor %}
+            </td>                     
+            
+        </tr>               
     </table>
 
 </body>

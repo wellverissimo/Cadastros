@@ -33,8 +33,10 @@ def listar_profissoes(request):
 
 def detalhar_cliente(request, id):
     cliente = Cliente.objects.get(id = id)
+    telefones = Telefone.objects.filter(cliente_id = id)
     context = {
-        "cliente": cliente
+        "cliente": cliente,
+        "Telefones" : telefones
     }
     return render(request, "clientes_detalhes.html",context)
     
